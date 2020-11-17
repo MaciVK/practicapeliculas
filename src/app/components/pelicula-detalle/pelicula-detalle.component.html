@@ -1,0 +1,25 @@
+<div class="card" style="width: 18rem">
+  <img class="card-img-top" src="{{ pelicula.foto }}" alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title">{{ pelicula.titulo }}</h5>
+    <p class="card-text">
+      {{ pelicula.argumento }}
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      Fecha de estreno: {{ pelicula.fechaEstreno }}
+    </li>
+    <li class="list-group-item">Director:{{ pelicula.director }}</li>
+    <li class="list-group-item">Reparto: {{ pelicula.actores }}</li>
+    <li class="list-group-item">Duracion: {{ pelicula.duracion }} minutos</li>
+  </ul>
+  <div class="card-body">
+    <a
+      href="{{ pelicula.enlaceVideo }}"
+      target="_blank"
+      class="btn btn-outline-danger"
+      >YouTube</a
+    >
+  </div>
+</div>

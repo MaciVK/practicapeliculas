@@ -1,0 +1,52 @@
+<form class="form-inline my-2 my-lg-0">
+  <input
+    class="form-control mr-sm-2"
+    type="text"
+    placeholder="Search"
+    aria-label="Search"
+    #cajaBusqueda
+    (keyup)="buscarPelisTitulo()"
+  />
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+    Search
+  </button>
+</form>
+<div
+  class="row d-flex flex-row"
+  *ngIf="peliculasBuscadas.length == 0; else buscadorPeliculas"
+>
+  <div class="card m-1" style="width: 18rem" *ngFor="let pelicula of peliculas">
+    <img class="card-img-top" src="{{ pelicula.foto }}" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ pelicula.titulo }}</h5>
+      <p class="card-text">{{ pelicula.argumento }}</p>
+      <a
+        [routerLink]="['/detallespelicula/', pelicula.idPelicula]"
+        class="btn btn-primary"
+        >Detalles</a
+      >
+      <a href="{{ pelicula.enlaceVideo }}" class="btn btn-danger">YouTube</a>
+    </div>
+  </div>
+</div>
+<ng-template #buscadorPeliculas>
+  <div class="row d-flex flex-row">
+    <div
+      class="card m-1"
+      style="width: 18rem"
+      *ngFor="let pelicula of peliculasBuscadas"
+    >
+      <img class="card-img-top" src="{{ pelicula.foto }}" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ pelicula.titulo }}</h5>
+        <p class="card-text">{{ pelicula.argumento }}</p>
+        <a
+          [routerLink]="['/detallespelicula/', pelicula.idPelicula]"
+          class="btn btn-primary"
+          >Detalles</a
+        >
+        <a href="{{ pelicula.enlaceVideo }}" class="btn btn-danger">YouTube</a>
+      </div>
+    </div>
+  </div>
+</ng-template>

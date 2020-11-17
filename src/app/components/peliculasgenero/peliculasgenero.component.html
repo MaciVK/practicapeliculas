@@ -1,0 +1,15 @@
+<div class="row d-flex flex-row">
+  <div class="card m-1" style="width: 18rem" *ngFor="let pelicula of peliculas">
+    <img class="card-img-top" src="{{ pelicula.foto }}" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ pelicula.titulo }}</h5>
+      <p class="card-text">{{ pelicula.argumento }}</p>
+      <a
+        [routerLink]="['/detallespelicula/', pelicula.idPelicula]"
+        class="btn btn-primary"
+        >Detalles</a
+      >
+      <a href="{{ pelicula.enlaceVideo }}" class="btn btn-danger">YouTube</a>
+    </div>
+  </div>
+</div>
